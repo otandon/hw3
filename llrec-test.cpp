@@ -67,6 +67,11 @@ void dealloc(Node* head)
 //   function object struct declarations
 // -----------------------------------------------
 
+struct IsOdd {
+    bool operator()(int x) const { return x % 2 != 0; }
+};
+
+
 
 
 
@@ -86,10 +91,24 @@ int main(int argc, char* argv[])
     print(head);
 
     // Test out your linked list code
+    Node *sm = nullptr, *lg = nullptr;
+    int pivot = 10;
+    llpivot(head, sm, lg, pivot);
+    cout << "Pivot = " << pivot << endl;
+    cout << "Smaller: ";
+    print(sm);
+    cout << "Larger: ): ";
+    print(lg);
 
+    Node* head2 = readList(argv[1]);
+    Node* filtered = llfilter(head2, IsOdd{});
+    cout << "Filtered (no odds): ";
+    print(filtered);
 
+    dealloc(sm);
+    dealloc(lg);
+    dealloc(filtered);
 
-    
     return 0;
 
 }
