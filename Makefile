@@ -14,6 +14,11 @@ llrec-test: llrec-test.o llrec.o
 llrec-test.o: llrec-test.cpp llrec.h
 llrec.o: llrec.cpp llrec.h
 
+stack_test: stack_test.o
+	$(CXX) $(CXXFLAGS) -o $@ $^
+
+stack_test.o: stack_test.cpp stack.h
+
 clean:
 	rm -f *.o rh llrec-test *~
 
