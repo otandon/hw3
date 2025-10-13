@@ -91,22 +91,22 @@ int main(int argc, char* argv[])
     print(head);
 
     // Test out your linked list code
-    Node *sm = nullptr, *lg = nullptr;
+    Node *small = nullptr, *large = nullptr;
     int pivot = 10;
-    llpivot(head, sm, lg, pivot);
+    llpivot(head, small, large, pivot);
     cout << "Pivot = " << pivot << endl;
     cout << "Smaller: ";
-    print(sm);
+    print(small);
     cout << "Larger: ): ";
-    print(lg);
+    print(large);
 
     Node* head2 = readList(argv[1]);
     Node* filtered = llfilter(head2, IsOdd{});
     cout << "Filtered (no odds): ";
     print(filtered);
 
-    dealloc(sm);
-    dealloc(lg);
+    dealloc(small);
+    dealloc(large);
     dealloc(filtered);
 
     return 0;
